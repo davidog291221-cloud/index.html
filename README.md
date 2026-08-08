@@ -1,2 +1,750 @@
-# index.html
-Founded in 2026 by David Ouaknine, TechFlow is a French SaaS company offering a cloud-based platform that helps businesses simplify and automate their digital workflows. Built on a modern, scalable tech stack, it delivers a reliable product with clear potential for growth.
+# techflow.html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFlow - Actif Digital Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 200, 0.1);
+            z-index: 1000;
+            padding: 1.5rem 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00ffc8 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .cta-header {
+            background: linear-gradient(135deg, #00ffc8 0%, #d4af37 100%);
+            color: #0a0a0a;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 200, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 255, 200, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 24s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, -50px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            color: #00ffc8;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            animation: slideDown 0.8s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ffc8 0%, #d4af37 50%, #ff006e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            margin-bottom: 3rem;
+            animation: slideDown 0.8s ease 0.2s backwards;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+            animation: slideDown 0.8s ease 0.4s backwards;
+        }
+
+        .metric {
+            background: rgba(0, 255, 200, 0.05);
+            border: 1px solid rgba(0, 255, 200, 0.2);
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 200, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .metric:hover::before {
+            left: 100%;
+        }
+
+        .metric:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 200, 0.5);
+        }
+
+        .metric-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #00ffc8;
+            margin-bottom: 0.4rem;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #909090;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideDown 0.8s ease 0.6s backwards;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00ffc8 0%, #d4af37 100%);
+            color: #0a0a0a;
+            border: none;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 255, 200, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(0, 255, 200, 0.5);
+            color: #00ffc8;
+        }
+
+        /* Sections generic */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-eyebrow {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            color: #d4af37;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            color: #f0f0f0;
+        }
+
+        /* Why section */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-4px);
+            background: rgba(212, 175, 55, 0.03);
+        }
+
+        .why-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.05rem;
+            color: #00ffc8;
+            margin-bottom: 0.7rem;
+        }
+
+        .why-card p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+        }
+
+        /* Chart section */
+        .chart-wrapper {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 0.8rem;
+            height: 220px;
+            margin-bottom: 1rem;
+        }
+
+        .bar-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+        }
+
+        .bar {
+            width: 100%;
+            max-width: 36px;
+            background: linear-gradient(180deg, #00ffc8 0%, #d4af37 100%);
+            border-radius: 6px 6px 0 0;
+            height: 0;
+            transition: height 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 0 20px rgba(0, 255, 200, 0.25);
+        }
+
+        .bar-label {
+            margin-top: 0.7rem;
+            font-size: 0.75rem;
+            color: #808080;
+        }
+
+        /* Tech details */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tech-item {
+            border-left: 2px solid #00ffc8;
+            padding: 0.5rem 0 0.5rem 1.2rem;
+        }
+
+        .tech-item .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #808080;
+            margin-bottom: 0.3rem;
+        }
+
+        .tech-item .value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: #e0e0e0;
+        }
+
+        /* Contact form */
+        .contact-wrapper {
+            background: rgba(0, 255, 200, 0.03);
+            border: 1px solid rgba(0, 255, 200, 0.15);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.3rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: #909090;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 0.9rem 1rem;
+            color: #e0e0e0;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00ffc8;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-error {
+            color: #ff006e;
+            font-size: 0.8rem;
+            margin-top: 0.4rem;
+            display: none;
+        }
+
+        .form-status {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #00ffc8;
+            display: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #00ffc8 0%, #d4af37 100%);
+            color: #0a0a0a;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 255, 200, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            color: #707070;
+            font-size: 0.85rem;
+        }
+
+        footer .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: #00ffc8;
+            margin-bottom: 1rem;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 640px) {
+            section { padding: 4rem 1.2rem; }
+            .contact-wrapper { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo">TECHFLOW</div>
+            <button class="cta-header" onclick="document.getElementById('contact').scrollIntoView()">Faire une offre</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="eyebrow">Actif digital en vente</div>
+            <h1>TechFlow</h1>
+            <p class="hero-subtitle">Une plateforme SaaS établie, rentable et prête à passer entre vos mains.</p>
+
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value" data-target="48200">0</div>
+                    <div class="metric-label">Visiteurs / mois</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" data-target="6400" data-prefix="€">0</div>
+                    <div class="metric-label">Revenu mensuel</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" data-target="4" data-suffix=" ans">0</div>
+                    <div class="metric-label">Ancienneté du domaine</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value" data-target="2100" data-suffix="+">0</div>
+                    <div class="metric-label">Utilisateurs actifs</div>
+                </div>
+            </div>
+
+            <div class="hero-cta-group">
+                <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView()">Faire une offre</button>
+                <button class="btn-secondary" onclick="document.getElementById('why').scrollIntoView()">En savoir plus</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="why">
+        <div class="section-eyebrow">L'opportunité</div>
+        <h2 class="section-title">Pourquoi cet actif</h2>
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="why-icon">📈</div>
+                <h3>SEO établi</h3>
+                <p>Positionné sur plus de 120 mots-clés, trafic organique en croissance constante depuis 3 ans.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">👥</div>
+                <h3>Audience fidèle</h3>
+                <p>Taux de rétention mensuel de 82% et une base d'utilisateurs engagée.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">⚙️</div>
+                <h3>Stack moderne</h3>
+                <p>Architecture propre, documentée, et facilement transférable à une nouvelle équipe.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">🚀</div>
+                <h3>Potentiel de croissance</h3>
+                <p>Fonctionnalités premium et marchés internationaux encore inexploités.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-eyebrow">Performance</div>
+        <h2 class="section-title">Évolution du revenu (12 mois)</h2>
+        <div class="chart-wrapper reveal">
+            <div class="chart-bars" id="chartBars"></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-eyebrow">Sous le capot</div>
+        <h2 class="section-title">Détails techniques</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <div class="label">Stack</div>
+                <div class="value">React / Node.js</div>
+            </div>
+            <div class="tech-item">
+                <div class="label">Hébergement</div>
+                <div class="value">Vercel + Supabase</div>
+            </div>
+            <div class="tech-item">
+                <div class="label">CMS</div>
+                <div class="value">Headless / Sanity</div>
+            </div>
+            <div class="tech-item">
+                <div class="label">Paiement</div>
+                <div class="value">Stripe intégré</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-eyebrow">Passez à l'action</div>
+        <h2 class="section-title">Faire une offre</h2>
+        <div class="contact-wrapper reveal">
+            <form id="offerForm" novalidate>
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" required>
+                    <div class="form-error" id="nameError">Merci de renseigner votre nom.</div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                    <div class="form-error" id="emailError">Merci de renseigner un email valide.</div>
+                </div>
+                <div class="form-group">
+                    <label for="offer">Montant de l'offre (€)</label>
+                    <input type="number" id="offer" min="1" required>
+                    <div class="form-error" id="offerError">Merci d'indiquer un montant.</div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Précisez votre projet, vos délais, vos questions..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Envoyer mon offre</button>
+                <div class="form-status" id="formStatus">Offre envoyée. Vous serez recontacté sous 48h.</div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">TECHFLOW</div>
+        <p>© 2026 TechFlow. Tous droits réservés.</p>
+        <p style="margin-top: 0.5rem;">Cette annonce ne constitue pas une offre contractuelle. Les chiffres présentés sont fournis par le vendeur.</p>
+    </footer>
+
+    <script>
+        // Animated counters
+        function animateCounters() {
+            document.querySelectorAll('.metric-value').forEach(el => {
+                const target = parseInt(el.getAttribute('data-target'), 10);
+                const prefix = el.getAttribute('data-prefix') || '';
+                const suffix = el.getAttribute('data-suffix') || '';
+                let current = 0;
+                const duration = 1500;
+                const startTime = performance.now();
+
+                function update(now) {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    current = Math.floor(eased * target);
+                    el.textContent = prefix + current.toLocaleString('fr-FR') + suffix;
+                    if (progress < 1) requestAnimationFrame(update);
+                }
+                requestAnimationFrame(update);
+            });
+        }
+        window.addEventListener('load', animateCounters);
+
+        // Chart bars
+        const chartData = [
+            { label: 'Sep', value: 2100 },
+            { label: 'Oct', value: 2400 },
+            { label: 'Nov', value: 2800 },
+            { label: 'Déc', value: 3200 },
+            { label: 'Jan', value: 3600 },
+            { label: 'Fév', value: 4100 },
+            { label: 'Mar', value: 4300 },
+            { label: 'Avr', value: 4900 },
+            { label: 'Mai', value: 5200 },
+            { label: 'Juin', value: 5600 },
+            { label: 'Juil', value: 6000 },
+            { label: 'Août', value: 6400 },
+        ];
+        const maxVal = Math.max(...chartData.map(d => d.value));
+        const chartContainer = document.getElementById('chartBars');
+        chartData.forEach(d => {
+            const col = document.createElement('div');
+            col.className = 'bar-col';
+            const bar = document.createElement('div');
+            bar.className = 'bar';
+            bar.dataset.height = (d.value / maxVal * 100) + '%';
+            const label = document.createElement('div');
+            label.className = 'bar-label';
+            label.textContent = d.label;
+            col.appendChild(bar);
+            col.appendChild(label);
+            chartContainer.appendChild(col);
+        });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.id === 'chartBars' || entry.target.contains(document.getElementById('chartBars'))) {
+                        document.querySelectorAll('.bar').forEach(bar => {
+                            bar.style.height = bar.dataset.height;
+                        });
+                    }
+                }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Form validation
+        const form = document.getElementById('offerForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let valid = true;
+
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const offer = document.getElementById('offer');
+
+            document.getElementById('nameError').style.display = 'none';
+            document.getElementById('emailError').style.display = 'none';
+            document.getElementById('offerError').style.display = 'none';
+
+            if (!name.value.trim()) {
+                document.getElementById('nameError').style.display = 'block';
+                valid = false;
+            }
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email.value.trim())) {
+                document.getElementById('emailError').style.display = 'block';
+                valid = false;
+            }
+            if (!offer.value || parseFloat(offer.value) <= 0) {
+                document.getElementById('offerError').style.display = 'block';
+                valid = false;
+            }
+
+            if (valid) {
+                document.getElementById('formStatus').style.display = 'block';
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>
